@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestell App</title>
+
+    <link rel="icon" type="image/png" href="./assets/icons/Logo 02.png" />
+
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/basket.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="./assets/icons/Logo 01.png" alt="Logo" id="logo" />
+
+        <h1>Bestell App</h1>
+
+        <div id="basket-icon-container">
+          <img
+            src="./assets/icons/basket.png"
+            alt="Warenkorb"
+            id="basket-icon"
+          />
+          <span id="basket-count">0</span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="product-list" class="product-list">
+        <!-- Produkte werden hier dynamisch eingefügt -->
+      </section>
+
+      <section id="basket-modal" class="hidden">
+        <div id="basket-content">
+          <h2>Warenkorb</h2>
+          <div id="basket-items">
+            <!-- Warenkorbeinträge werden hier dynamisch eingefügt -->
+          </div>
+          <div id="basket-total">
+            Gesamt: <span id="total-amount">0.00 €</span>
+          </div>
+          <button id="close-basket">Schließen</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Bestell App. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
+
