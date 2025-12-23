@@ -14,3 +14,17 @@ function getDishTemplate(dish) {
         </div>
     `;
 }
+
+function getBasketItemTemplate(item) {
+    const itemTotal = item.price * item.amount; 
+    return `
+        <div class="basket-item">
+            <span>${item.amount}x ${item.name}</span>
+            <span>${itemTotal.toFixed(2)} €</span>
+            <div class="basket-controls">
+                <button onclick="removeFromBasket('${item.name}')">-</button>
+                <button onclick="addToBasket('${item.name}', ${item.price})">+</button>
+            </div>
+        </div>
+    `;
+}
