@@ -6,6 +6,8 @@
 
 html {
     scroll-behavior: smooth;
+        font-family: palanquin, sans-serif;
+
 }
 
 h1 {
@@ -18,4 +20,17 @@ h2 {
     margin-bottom: 0.75rem;
       background-color: #E76C1F;
     color: white;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('../assets/fonts/Palanquin/Palanquin-Regular.ttf');
+    font-weight: 400;
+}
+
+/* Fett für Überschriften */
+@font-face {
+    font-family: 'Palanquin';
+    src: url('../assets/fonts/Palanquin/Palanquin-Bold.ttf');
+    font-weight: 700;
 }
