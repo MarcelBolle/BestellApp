@@ -1,58 +1,84 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bestell App</title>
 
-    <link rel="icon" type="image/svg+xml" href="./assets/icons/Logo02.svg" class="fav-black"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bestell App</title>
 
-    <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./styles/basket.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <img src="./assets/icons/Logo01.svg" alt="Logo" id="logo" />
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/Logo02.svg" class="fav-black" />
 
-        <h1>Bestell App</h1>
+  <link rel="stylesheet" href="./styles/standard.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles/basket.css" />
+</head>
 
-        <div id="basket-icon-container">
-          <img
-            src="./assets/icons/shopping_cart.svg"
-            alt="Warenkorb"
-            id="basket-icon"
-          />
-          <span id="basket-count">0</span>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <section id="product-list" class="product-list">
-        <!-- Produkte werden hier dynamisch eingefügt -->
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <img src="./assets/icons/Logo02.svg" alt="Logo" id="logo" />
+
+      <button id="burger-button" class="burger-button"><img src="./assets/icons/dehaze.svg" alt="menu"></button>
+    </nav>
+  </header>
+  <main>
+    <img src="./assets/icons/mainpic.png" alt="">
+    <nav class="category-nav">
+      <a href="#pizza-section">Pizzen</a>
+      <a href="#burger-section">Burger</a>
+      <a href="#pasta-section">Pasta</a>
+      <a href="#salad-section">Salate</a>
+    </nav>
+    <section id="product-list" class="product-list">
+      <section id="pizza-section">
+        <img src="./assets/icons/Pizza 1.png" alt="Pizza">
+        <h2>Pizzen</h2>
+        <div id="pizza-list" class="product-grid"></div>
       </section>
 
-      <section id="basket-modal" class="hidden">
-        <div id="basket-content">
-          <h2>Warenkorb</h2>
-          <div id="basket-items">
-            <!-- Warenkorbeinträge werden hier dynamisch eingefügt -->
-          </div>
-          <div id="basket-total">
-            Gesamt: <span id="total-amount">0.00 €</span>
-          </div>
-          <button id="close-basket">Schließen</button>
-        </div>
+      <section id="burger-section">
+        <img src="./assets/icons/Burger.png" alt="Burger">
+        <h2>Burger</h2>
+        <div id="burger-list" class="product-grid"></div>
       </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Bestell App. Alle Rechte vorbehalten.</p>
-    </footer>
 
-    <script src="./scripts/db.js"></script>
-    <script src="./scripts/template.js"></script>
-    <script src="./script.js"></script>
-  </body>
+      <section id="pasta-section">
+        <img src="./assets/icons/pasta.png" alt="Pasta">
+        <h2>Pasta</h2>
+        <div id="pasta-list" class="product-grid"></div>
+      </section>
+
+      <section id="salad-section">
+        <img src="./assets/icons/Salad 1.png" alt="">
+        <h2>Salate</h2>
+        <div id="salat-list" class="product-grid"></div>
+      </section>
+    </section>
+
+    <section id="basket-modal" class="hidden">
+      <div id="basket-content">
+        <h2>Warenkorb</h2>
+        <div id="basket-items">
+          <!-- Warenkorbeinträge werden hier dynamisch eingefügt -->
+        </div>
+        <div id="basket-total">
+          Gesamt: <span id="total-amount">0.00 €</span>
+        </div>
+        <button id="close-basket">Schließen</button>
+      </div>
+      <div id="basket-icon-container">
+        <img src="./assets/icons/shopping_cart.svg" alt="Warenkorb" id="basket-icon" />
+        <span id="basket-count">0</span>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Bestell App. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <script src="./scripts/db.js"></script>
+  <script src="./scripts/template.js"></script>
+  <script src="./script.js"></script>
+</body>
+
 </html>
-

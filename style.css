@@ -15,3 +15,66 @@
 .fav-black {
   filter: invert(1) brightness(0);
 }
+
+.main-header {
+  background-color: #E76C1F;
+  height: 128px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.product-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 16px;
+}
+
+.burger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.category-pizza {
+  border-left: 5px solid red;
+}
+
+.category-burger {
+  border-left: 5px solid brown;
+}
+
+.category-pasta {
+  border-left: 5px solid green;
+}
+
+.category-salat {
+  border-left: 5px solid blue;
+}
+
+.category-nav {
+  position: sticky;
+  top: 0;
+  /* Bleibt beim Scrollen oben kleben */
+  background: white;
+  z-index: 100;
+}

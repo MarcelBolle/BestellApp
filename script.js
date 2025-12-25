@@ -7,6 +7,20 @@ let myBasket = JSON.parse(localStorage.getItem('basket')) || [];
 function calculateTotal() {
     return myBasket.reduce((sum, item) => sum + (item.price * item.amount), 0);
 }
+
+function initApp() {
+    // Filtere die Daten nach Kategorien
+    const pizzas = myDishes.filter(d => d.category === 'Pizza');
+    const burgers = myDishes.filter(d => d.category === 'Burger');
+    const pasta = myDishes.filter(d => d.category === 'Pasta');
+    const salat = myDishes.filter(d => d.category === 'Salat');
+
+    // Rendere sie in die jeweiligen Container
+    renderDishes(pizzas, "pizza-list");
+    renderDishes(burgers, "burger-list");
+    renderDishes(pasta, "pasta-list");
+    renderDishes(salat, "salat-list");
+}
 //endregion
 
 // region Logik
@@ -33,14 +47,16 @@ function removeFromBasket(name) {
 //endregion
 
 // region Rendering
-function renderDishes(myDishes) {
-    if (!dishList) return;
-    dishList.innerHTML = myDishes.map(getDishTemplate).join('');
+function renderDishes(dishes, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    container.innerHTML = dishes.map(getDishTemplate).join('');
 }
 
 function renderBasket() {
     const basketContainer = document.getElementById("basket-items");
-    const totalContainer = document.getElementById("basket-total");
+    const totalContainer = document.getElementById("total-amount");
     if (!basketContainer || !totalContainer) return;
 
     if (myBasket.length === 0) {
@@ -55,6 +71,6 @@ function renderBasket() {
     localStorage.setItem('basket', JSON.stringify(myBasket));
 }
 
-renderDishes(myDishes);
+initApp();
 renderBasket();
 // endregion
