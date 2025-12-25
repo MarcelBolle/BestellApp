@@ -1,9 +1,3 @@
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
 
 .dish-image {
   width: 150px;
@@ -25,21 +19,21 @@
   font-weight: bold;
 }
 
-main {
+.product-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
   gap: 40px;
-  padding: 20px;
 }
 
-.product-list{
+.product-grid {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  max-width: 1200px;
+  gap: 20px;
+  max-width: 1200px; /* Gleiche Breite wie dein Seperator-Content */
+  margin: 0 auto;    /* Zentriert das Grid auf der Seite */
   width: 100%;
+  padding: 20px;     /* Abstand zum Rand */
 }
 
 .navbar {
@@ -77,4 +71,28 @@ main {
   /* Bleibt beim Scrollen oben kleben */
   background: white;
   z-index: 100;
+}
+
+.seperator-full {
+    background-color: #E76C1F; /* Dein Orange */
+    width: 100%;               /* Geht über den ganzen Bildschirm */
+}
+
+.seperator-content {
+    max-width: 1200px;         /* Hier stellst du deine Content-Breite ein */
+    margin: 0 auto;            /* Zentriert den Inhalt */
+    display: flex;             /* Bringt Logo und Text nebeneinander */
+    align-items: center;       /* Zentriert sie vertikal */
+    gap: 15px;                 /* Abstand zwischen Logo und Text */
+    padding: 0 20px;           /* Sicherheitsabstand für kleine Bildschirme */
+}
+
+.seperator-content img {
+    height: 40px;              /* Größe deines Logos */
+    width: auto;
+}
+
+.seperator-content h2 {
+    color: white;              /* Weißer Text auf Orange sieht meist gut aus */
+    margin: 0;
 }
