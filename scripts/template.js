@@ -3,14 +3,21 @@ function getDishTemplate(dish) {
     return `
         <div class="dish-card">
             <img src="${dish.image}" alt="${dish.name}" class="dish-image" />
-            <div>
-                <h3>${dish.name}</h3>
-                <p>${dish.description}</p>
+            
+            <div class="dish-info">
+                <div class="dish-header">
+                    <h3>${dish.name}</h3>
+                    <p class="description">${dish.description}</p>
+                </div>
+                
+                <div class="dish-footer">
+                    <span class="price">${dish.price.toFixed(2)}€</span>
+                    <div class="action-buttons">
+                        ${getBasketStatus(dish.name)} 
+                        <button class="add-btn" onclick="addToBasket('${dish.name}', ${dish.price})">+</button>
+                    </div>
+                </div>
             </div>
-            <p>Preis: ${dish.price.toFixed(2)} €</p>
-            <button onclick="addToBasket('${dish.name}', ${dish.price})">
-                In den Warenkorb
-            </button>
         </div>
     `;
 }

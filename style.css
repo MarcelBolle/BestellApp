@@ -5,6 +5,55 @@
   border-radius: 10px;
 }
 
+.dish-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #FDEADC;
+  border-radius: 12px;
+  gap: 10px;
+  padding: 15px;
+  align-items: stretch;
+}
+
+.dish-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Schiebt Header nach oben, Footer nach unten */
+    flex-grow: 1;
+}
+
+.dish-footer {
+    display: flex;
+    justify-content: space-between; /* Preis links, Buttons rechts */
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.added-badge {
+    background-color: white;
+    color: #E76C1F;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.add-btn {
+    background-color: white;
+    color: #E76C1F;
+    border: none;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .fav-black {
   filter: invert(1) brightness(0);
 }
@@ -19,6 +68,7 @@
 }
 
 .product-list {
+  width: calc(100% - 300px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,13 +79,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 1200px;
-  /* Gleiche Breite wie dein Seperator-Content */
   margin: 0 auto;
-  /* Zentriert das Grid auf der Seite */
   width: 100%;
   padding: 20px;
-  /* Abstand zum Rand */
 }
 
 .navbar {
@@ -70,48 +116,111 @@
 .category-nav {
   position: sticky;
   top: 0;
-  /* Bleibt beim Scrollen oben kleben */
-  background: white;
   z-index: 100;
+  background: #E76C1F;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.category-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
 }
 
 .seperator-full {
-  height: 60px;          /* Festgegebene Höhe laut Figma */
+  height: 60px;
   background-color: #E76C1F;
   width: 100%;
-  display: flex;         /* Ermöglicht vertikale Zentrierung des Inhalts */
-  align-items: center;   /* Zentriert Text und Icon-Container vertikal */
-  margin: 40px 0;        /* Platz schaffen für das überstehende Icon */
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
 }
 
 .seperator-content {
-  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   display: flex;
-  align-items: center;   /* Hält Icon und Text auf einer Mittellinie */
+  align-items: center;
   gap: 15px;
   padding: 0 20px;
-  position: relative;    /* Basis für eventuelle Feinjustierung */
+  position: relative;
 }
 
 .seperator-content img {
-  height: 80px;         /* Icon ist größer als die 60px vom Balken */
+  height: 80px;
   width: auto;
-  flex-shrink: 0;        /* Verhindert Verformung */
-  
-  /* Der entscheidende Trick: */
-  /* Da der Parent (seperator-full) display:flex und align-items:center hat, 
-     ragt das Bild automatisch oben und unten gleichmäßig heraus. */
-  
-  margin-top: -10px;     /* Falls das Icon in Figma optisch etwas weiter oben sitzt */
+  flex-shrink: 0;
+  margin-top: -10px;
 }
 
 .seperator-content h2 {
   color: white;
   margin: 0;
-  font-size: 40px;       
+  font-size: 40px;
   font-family: 'Palanquin', sans-serif;
-  line-height: 120%;    
-  font-weight: 700; 
+  line-height: 120%;
+  font-weight: 700;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.main-image-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.splitt_view_container {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.basket_container {
+  width: 300px;
+  border-left: 2px solid #E76C1F;
+  background-color: #363534;
+  color: #FDEADC;
+  box-sizing: border-box;
+  flex-grow: 1;
+
+}
+
+.basket {
+  position: sticky;
+  top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.headline {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.heading h1 {
+  color: #363534;
+}
+
+.heading span {
+    color: #E76C1F;
 }

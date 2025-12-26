@@ -8,6 +8,14 @@ function calculateTotal() {
     return myBasket.reduce((sum, item) => sum + (item.price * item.amount), 0);
 }
 
+function getBasketStatus(dishName) {
+    const item = myBasket.find(i => i.name === dishName);
+    if (item && item.amount > 0) {
+        return `<span class="added-badge">Added ${item.amount}</span>`;
+    }
+    return '';
+}
+
 function initApp() {
     // Filtere die Daten nach Kategorien
     const pizzas = myDishes.filter(d => d.category === 'Pizza');

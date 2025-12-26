@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Palanquin';
+    src: url('../assets/fonts/Palanquin/Palanquin-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('../assets/fonts/Palanquin/Palanquin-Bold.ttf');
+    font-weight: 700;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,31 +18,36 @@
 
 html {
     scroll-behavior: smooth;
-        font-family: palanquin, sans-serif;
 
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-family: 'Palanquin', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
 }
 
 h2 {
     font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-      background-color: #E76C1F;
+    background-color: #E76C1F;
     color: white;
 }
 
-@font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin/Palanquin-Regular.ttf');
-    font-weight: 400;
-}
-
-/* Fett für Überschriften */
-@font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin/Palanquin-Bold.ttf');
+h3 {
+    font-size: 32px;
+    font-family: 'Palanquin', sans-serif;
     font-weight: 700;
 }
+
+h4 {
+    font-size: 24px;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
+    color: #363534;
+}
+
+p {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 16px;
+}
+

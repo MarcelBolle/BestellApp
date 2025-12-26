@@ -22,13 +22,20 @@
     </nav>
   </header>
   <main>
-    <img src="./assets/icons/mainpic.png" alt="">
+    <div class="main-image-container">
+      <img src="./assets/icons/mainpic.png" alt="" class="main-image" />
+    </div>
+    <div class="headline">
+      <h1 class="heading"><span>Burger</span>House</h1>
+      <h4>The best of Burgers, Pizza, and Greens, all in one great place.</h4>
+    </div>
     <nav class="category-nav">
       <a href="#pizza-section">Pizzen</a>
       <a href="#burger-section">Burger</a>
       <a href="#pasta-section">Pasta</a>
       <a href="#salad-section">Salate</a>
     </nav>
+    <div class="splitt_view_container">
     <section id="product-list" class="product-list">
       <section id="pizza-section">
         <div class="seperator-full">
@@ -70,9 +77,9 @@
       </section>
     </section>
 
-    <section id="basket-modal" class="hidden">
-      <div id="basket-content">
-        <h2>Warenkorb</h2>
+    <section id="basket-modal" class="basket_container">
+      <div id="basket-content" class="basket">
+        <h3>Warenkorb</h3>
         <div id="basket-items">
           <!-- Warenkorbeinträge werden hier dynamisch eingefügt -->
         </div>
@@ -86,6 +93,8 @@
         <span id="basket-count">0</span>
       </div>
     </section>
+
+    </div>
   </main>
   <footer>
     <p>&copy; 2025 Bestell App. Alle Rechte vorbehalten.</p>
