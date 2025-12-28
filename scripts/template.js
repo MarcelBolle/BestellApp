@@ -23,14 +23,17 @@ function getDishTemplate(dish) {
 }
 
 function getBasketItemTemplate(item) {
-    const itemTotal = item.price * item.amount; 
+    const itemTotal = item.price * item.amount;
     return `
         <div class="basket-item">
-            <span>${item.amount}x ${item.name}</span>
-            <span>${itemTotal.toFixed(2)} €</span>
-            <div class="basket-controls">
-                <button onclick="removeFromBasket('${item.name}')">-</button>
-                <button onclick="addToBasket('${item.name}', ${item.price})">+</button>
+            <span>${item.amount} x ${item.name}</span>
+            <div class="basket-details">
+                <div class="basket-controls">
+                    <button onclick="removeFromBasket('${item.name}')"><img src="./assets/icons/delete.svg" alt=""></button>
+                    <span>${item.amount}</span>
+                    <button onclick="addToBasket('${item.name}', ${item.price})">+</button>
+                </div>
+                    <span>${itemTotal.toFixed(2)} €</span>
             </div>
         </div>
     `;

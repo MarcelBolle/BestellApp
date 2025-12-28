@@ -1,0 +1,82 @@
+.basket_container {
+  width: 435px;
+  color: #FDEADC;
+  box-sizing: border-box;
+  flex-grow: 1;
+  font-family: "Palanquin", sans-serif;
+}
+
+.basket {
+  position: sticky;
+  min-height: 500px;
+  top: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #363534;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  gap: 16px;
+  padding-top: 16px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.basket-item {
+  width: 344px;
+  background-color: #FDEADC;
+  color: #363534;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.basket-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basket-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+}
+
+.basket-controls button {
+  background-color: transparent;
+  border: none;
+  height: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.basket-total {
+  width: 344px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.basket-total .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.basket-total hr {
+  margin: 10px 0;
+}
+
+.basket-total .total {
+  font-weight: 700;
+}

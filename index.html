@@ -36,63 +36,63 @@
       <a href="#salad-section">Salate</a>
     </nav>
     <div class="splitt_view_container">
-    <section id="product-list" class="product-list">
-      <section id="pizza-section">
-        <div class="seperator-full">
-          <div class="seperator-content">
-            <img src="./assets/icons/Pizza 1.png" alt="Pizza">
-            <h2>Pizzen</h2>
+      <section id="product-list" class="product-list">
+        <section id="pizza-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/Pizza 1.png" alt="Pizza">
+              <h2>Pizzen</h2>
+            </div>
           </div>
-        </div>
-        <div id="pizza-list" class="product-grid"></div>
+          <div id="pizza-list" class="product-grid"></div>
+        </section>
+
+        <section id="burger-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/Burger.png" alt="Burger">
+              <h2>Burger</h2>
+            </div>
+          </div>
+          <div id="burger-list" class="product-grid"></div>
+        </section>
+
+        <section id="pasta-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/pasta.png" alt="Pasta">
+              <h2>Pasta</h2>
+            </div>
+          </div>
+          <div id="pasta-list" class="product-grid"></div>
+        </section>
+
+        <section id="salad-section">
+          <div class="seperator-full">
+            <div class="seperator-content"> <img src="./assets/icons/Salad 1.png" alt="Salat Icon">
+              <h2>Salate</h2>
+            </div>
+          </div>
+          <div id="salat-list" class="product-grid"></div>
+        </section>
       </section>
 
-      <section id="burger-section">
-        <div class="seperator-full">
-          <div class="seperator-content">
-            <img src="./assets/icons/Burger.png" alt="Burger">
-            <h2>Burger</h2>
+      <section id="basket-modal" class="basket_container">
+        <div id="basket-content" class="basket">
+          <h3>Warenkorb</h3>
+          <div id="basket-items"></div>
+          <div id="basket-total" class="basket-total">
+            <div class="row"><span>Zwischensumme:</span><span id="total-amount">0.00 €</span></div>
+            <div class="row"><span>Lieferkosten:</span><span id="delivery-fee">2.50 €</span></div>
+            <hr />
+            <div class="row total"><span>Gesamt:</span><span id="grand-total">0.00 €</span></div>
           </div>
         </div>
-        <div id="burger-list" class="product-grid"></div>
+        <div id="basket-icon-container">
+          <img src="./assets/icons/shopping_cart.svg" alt="Warenkorb" id="basket-icon" />
+          <span id="basket-count">0</span>
+        </div>
       </section>
-
-      <section id="pasta-section">
-        <div class="seperator-full">
-          <div class="seperator-content">
-            <img src="./assets/icons/pasta.png" alt="Pasta">
-            <h2>Pasta</h2>
-          </div>
-        </div>
-        <div id="pasta-list" class="product-grid"></div>
-      </section>
-
-      <section id="salad-section">
-        <div class="seperator-full">
-          <div class="seperator-content"> <img src="./assets/icons/Salad 1.png" alt="Salat Icon">
-            <h2>Salate</h2>
-          </div>
-        </div>
-        <div id="salat-list" class="product-grid"></div>
-      </section>
-    </section>
-
-    <section id="basket-modal" class="basket_container">
-      <div id="basket-content" class="basket">
-        <h3>Warenkorb</h3>
-        <div id="basket-items">
-          <!-- Warenkorbeinträge werden hier dynamisch eingefügt -->
-        </div>
-        <div id="basket-total">
-          Gesamt: <span id="total-amount">0.00 €</span>
-        </div>
-        <button id="close-basket">Schließen</button>
-      </div>
-      <div id="basket-icon-container">
-        <img src="./assets/icons/shopping_cart.svg" alt="Warenkorb" id="basket-icon" />
-        <span id="basket-count">0</span>
-      </div>
-    </section>
 
     </div>
   </main>
