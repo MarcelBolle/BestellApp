@@ -17,13 +17,11 @@ function getBasketStatus(dishName) {
 }
 
 function initApp() {
-    // Filtere die Daten nach Kategorien
     const pizzas = myDishes.filter(d => d.category === 'Pizza');
     const burgers = myDishes.filter(d => d.category === 'Burger');
     const pasta = myDishes.filter(d => d.category === 'Pasta');
     const salat = myDishes.filter(d => d.category === 'Salat');
 
-    // Rendere sie in die jeweiligen Container
     renderDishes(pizzas, "pizza-list");
     renderDishes(burgers, "burger-list");
     renderDishes(pasta, "pasta-list");
