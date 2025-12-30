@@ -36,7 +36,7 @@ function renderMenu() {
   const categories = ["Pizza", "Burger", "Pasta", "Salat"];
   categories.forEach(cat => {
       const dishes = myDishes.filter(d => d.category === cat);
-      renderDishes(dishes, `${cat.toLowerCase()}-list`); // Dynamische ID
+      renderDishes(dishes, `${cat.toLowerCase()}-list`);
   });
 }
 
