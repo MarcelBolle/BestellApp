@@ -1,62 +1,76 @@
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin/Palanquin-Regular.ttf');
-    font-weight: 400;
+  font-family: "Palanquin";
+  src: url("../assets/fonts/Palanquin/Palanquin-Regular.ttf");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin/Palanquin-Bold.ttf');
-    font-weight: 700;
+  font-family: "Palanquin";
+  src: url("../assets/fonts/Palanquin/Palanquin-Bold.ttf");
+  font-weight: 700;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-
+  scroll-behavior: smooth;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 h1 {
-    font-family: 'Palanquin', sans-serif;
-    font-size: 48px;
-    font-weight: 900;
+  font-family: "Palanquin", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
 }
 
 h2 {
-    font-size: 40px;
-    font-family: 'Palanquin', sans-serif;
-    font-weight: 700;
-    color: white;
+  font-size: 40px;
+  font-family: "Palanquin", sans-serif;
+  font-weight: 700;
+  color: white;
 }
 
 h3 {
-    font-size: 32px;
-    font-family: 'Palanquin', sans-serif;
-    font-weight: 700;
+  font-size: 32px;
+  font-family: "Palanquin", sans-serif;
+  font-weight: 700;
 }
 
 h4 {
-    font-size: 24px;
-    font-family: 'Palanquin', sans-serif;
-    font-weight: 700;
-    color: #363534;
+  font-size: 24px;
+  font-family: "Palanquin", sans-serif;
+  font-weight: 700;
+  color: #363534;
 }
 
 p {
-    font-family: 'Palanquin', sans-serif;
-    font-size: 16px;
+  font-family: "Palanquin", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
+.fav-black {
+  filter: invert(1) brightness(0);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

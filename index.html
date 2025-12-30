@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="./styles/responsive.css" />
+    <link rel="stylesheet" href="./styles/cards.css" />
   </head>
 
   <body>
@@ -93,7 +95,11 @@
 
         <section id="basket-modal" class="basket_container">
           <div id="basket-content" class="basket">
-            <h3>Warenkorb</h3>
+            <div class="cart-header-row">
+              <h3>Warenkorb</h3>
+              <button id="close-basket-btn" class="close-btn" onclick="toggleMobileBasket()">&times;</button>
+            </div>
+
             <div id="basket-items"></div>
             <div id="basket-total" class="basket-total">
               <div class="row">
@@ -134,9 +140,34 @@
       </section>
     </footer>
 
+    <div id="mobile-basket-overlay" class="mobile-overlay" onclick="toggleMobileBasket()"></div>
+
+    <nav class="mobile-bottom-nav">
+      <div class="nav-item" onclick="window.scrollTo(0,0)">
+        <img
+          src="./assets/icons/Logo02.svg"
+          alt="Home"
+          style="width: 24px; filter: invert(1)"
+        />
+        <span>Menu</span>
+      </div>
+
+      <div class="nav-item" id="mobile-cart-trigger" onclick="toggleMobileBasket()">
+        <div class="icon-wrapper">
+          <img
+            src="./assets/icons/shopping_cart.svg"
+            alt="Cart"
+            style="filter: invert(1)"
+          />
+          <span id="mobile-basket-count" class="cart-badge">0</span>
+        </div>
+        <span>Korb</span>
+      </div>
+    </nav>
+
     <div id="overlay" class="overlay d-none" onclick="closeOverlay()">
       <div class="confirmation-card" onclick="event.stopPropagation()">
-        <img src="./assets/icons/delivercar.png" alt="DeliverCar">
+        <img src="./assets/icons/delivercar.png" alt="DeliverCar" />
         <h3>Bestellung bestätigt!</h3>
         <p>Dein Essen ist auf dem Weg.</p>
       </div>
@@ -145,5 +176,6 @@
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./script.js"></script>
+    <script src="./scripts/responsive.js"></script>
   </body>
 </html>

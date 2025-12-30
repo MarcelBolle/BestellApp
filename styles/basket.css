@@ -177,3 +177,40 @@
 .checkout-btn:hover {
     background-color: #c95d1b;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-card {
+  background-color: #363534;
+  color: #fdeadc;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.confirmation-card img {
+  width: 80px;
+}
+
+.confirmation-card h3 {
+  font-size: 42px;
+}
+
+.confirmation-card p {
+  font-size: 29px;
+  font-weight: 700;
+}
