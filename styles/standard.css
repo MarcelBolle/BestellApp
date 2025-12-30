@@ -21,6 +21,14 @@ html {
 
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.d-none {
+    display: none !important;
+}
+
 h1 {
     font-family: 'Palanquin', sans-serif;
     font-size: 48px;
@@ -28,8 +36,9 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
-    background-color: #E76C1F;
+    font-size: 40px;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 700;
     color: white;
 }
 

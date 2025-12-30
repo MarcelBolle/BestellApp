@@ -14,7 +14,7 @@ function getDishTemplate(dish) {
                     <span class="price">${dish.price.toFixed(2)}€</span>
                     <div class="action-buttons">
                         ${getBasketStatus(dish.name)} 
-                        <button class="add-btn" onclick="addToBasket('${dish.name}', ${dish.price})">+</button>
+                        <button class="add-btn" onclick="addToBasket('${dish.name}', ${dish.price})">Hinzufügen</button>
                     </div>
                 </div>
             </div>
@@ -24,16 +24,33 @@ function getDishTemplate(dish) {
 
 function getBasketItemTemplate(item) {
     const itemTotal = item.price * item.amount;
+    
+    const topDeleteButton = item.amount > 1 
+        ? `<button class="btn-icon-top" onclick="removeFromBasket('${item.name}', true)">
+             <img src="./assets/icons/delete.svg" alt="Löschen">
+           </button>` 
+        : '';
+
+    const leftControlButton = item.amount === 1
+        ? `<button class="btn-icon" onclick="removeFromBasket('${item.name}', true)">
+             <img src="./assets/icons/delete.svg" alt="Löschen">
+           </button>`
+        : `<button class="btn-control" onclick="removeFromBasket('${item.name}')">-</button>`;
+
     return `
         <div class="basket-item">
-            <span>${item.amount} x ${item.name}</span>
-            <div class="basket-details">
+            <div class="basket-item-header">
+                <span class="basket-item-title">${item.amount} x ${item.name}</span>
+                ${topDeleteButton}
+            </div>
+            
+            <div class="basket-item-bottom">
                 <div class="basket-controls">
-                    <button onclick="removeFromBasket('${item.name}')"><img src="./assets/icons/delete.svg" alt=""></button>
-                    <span>${item.amount}</span>
-                    <button onclick="addToBasket('${item.name}', ${item.price})">+</button>
+                    ${leftControlButton}
+                    <span class="amount-display">${item.amount}</span>
+                    <button class="btn-control" onclick="addToBasket('${item.name}', ${item.price})">+</button>
                 </div>
-                    <span>${itemTotal.toFixed(2)} €</span>
+                <span class="basket-price">${itemTotal.toFixed(2)} €</span>
             </div>
         </div>
     `;
