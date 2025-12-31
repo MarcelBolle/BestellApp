@@ -107,6 +107,8 @@ function renderBasket() {
   modal.classList.toggle("d-none", isEmpty);
   itemsCon.innerHTML = isEmpty ? "" : myBasket.map(getBasketItemTemplate).join("");
 
+  if (basketEl) basketEl.classList.toggle("scroll-items", myBasket.length >= 3);
+
   updateBasketSums();
   updateBadges();
 }

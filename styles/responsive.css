@@ -78,8 +78,11 @@
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
 
-    overflow-y: auto;
+    overflow: hidden;
     padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
   }
 
   .cart-header-row {
@@ -89,9 +92,6 @@
     width: 100%;
     padding: 15px 20px;
     background-color: #363534;
-    position: sticky;
-    top: 0;
-    z-index: 10;
     border-bottom: 1px solid #4a4948;
   }
 
@@ -209,6 +209,7 @@
   h1 {
     font-size: 36px;
   }
+
   h2 {
     font-size: 32px;
   }
@@ -298,5 +299,24 @@
 
   .basket-item {
     width: 100%;
+  }
+
+  .row {
+    font-size: 16px;
+  }
+
+  .checkout-btn {
+    font-size: 18px;
+    padding: 12px 0;
+    width: 250px;
+  }
+
+  .basket-total {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column-reverse;
+    align-items: stretch;
   }
 }

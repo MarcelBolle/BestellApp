@@ -11,6 +11,7 @@
 .basket {
   position: sticky;
   min-height: 500px;
+  max-height: 700px;
   top: 38px;
   display: flex;
   flex-direction: column;
@@ -34,6 +35,16 @@
   display: flex;
   flex-direction: column; 
   gap: 10px;
+}
+
+#basket-items{
+  overflow-y: hidden;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.basket.scroll-items #basket-items {
+  overflow-y: auto;
 }
 
 .basket-item-header {
@@ -135,6 +146,7 @@
   width: 344px;
   padding: 20px;
   margin-bottom: 20px;
+  margin-top: auto;
 }
 
 .basket-total .row {
