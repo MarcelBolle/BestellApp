@@ -101,13 +101,16 @@ function renderDishes(dishes, containerId) {
 function renderBasket() {
   const itemsCon = document.getElementById("basket-items");
   const modal = document.getElementById("basket-modal");
+  const basketEl = document.getElementById("basket-content");
+
   if (!itemsCon || !modal) return;
 
   const isEmpty = myBasket.length === 0;
   modal.classList.toggle("d-none", isEmpty);
   itemsCon.innerHTML = isEmpty ? "" : myBasket.map(getBasketItemTemplate).join("");
 
-  if (basketEl) basketEl.classList.toggle("scroll-items", myBasket.length >= 3);
+  const totalItems = myBasket.reduce((sum, item) => sum + item.amount, 0);
+  if (basketEl) basketEl.classList.toggle("scroll-items", totalItems >= 3);
 
   updateBasketSums();
   updateBadges();
