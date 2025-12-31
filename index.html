@@ -1,180 +1,158 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bestell App</title>
 
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="./assets/icons/favicon.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bestell App</title>
 
-    <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./styles/basket.css" />
-    <link rel="stylesheet" href="./styles/responsive.css" />
-    <link rel="stylesheet" href="./styles/cards.css" />
-  </head>
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.png" />
 
-  <body>
-    <header class="main-header">
-      <nav class="navbar">
-        <img src="./assets/icons/Logo02.svg" alt="Logo" id="logo" />
+  <link rel="stylesheet" href="./styles/standard.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles/basket.css" />
+  <link rel="stylesheet" href="./styles/responsive.css" />
+  <link rel="stylesheet" href="./styles/cards.css" />
+</head>
 
-        <button id="burger-button" class="burger-button">
-          <img src="./assets/icons/dehaze.svg" alt="menu" />
-        </button>
-      </nav>
-    </header>
-    <main>
-      <div class="main-image-container">
-        <img src="./assets/icons/mainpic.png" alt="" class="main-image" />
-        <img
-          src="./assets/icons/BurgerHouseLogo.png"
-          alt="Logo"
-          class="logo-overlay"
-        />
-      </div>
-      <div class="headline">
-        <h1 class="heading"><span>Burger</span>House</h1>
-        <h4>The best of Burgers, Pizza, and Greens, all in one great place.</h4>
-      </div>
-      <div class="category-nav-background">
-        <nav class="category-nav">
-          <a href="#pizza-section">Pizzen</a>
-          <a href="#burger-section">Burger</a>
-          <a href="#pasta-section">Pasta</a>
-          <a href="#salad-section">Salate</a>
-        </nav>
-      </div>
-      <div class="splitt_view_container">
-        <section id="product-list" class="product-list">
-          <section id="pizza-section">
-            <div class="seperator-full">
-              <div class="seperator-content">
-                <img src="./assets/icons/Pizza 1.png" alt="Pizza" />
-                <h2>Pizzen</h2>
-              </div>
-            </div>
-            <div id="pizza-list" class="product-grid"></div>
-          </section>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <img src="./assets/icons/Logo02.svg" alt="Logo" id="logo" />
 
-          <section id="burger-section">
-            <div class="seperator-full">
-              <div class="seperator-content">
-                <img src="./assets/icons/Burger.png" alt="Burger" />
-                <h2>Burger</h2>
-              </div>
-            </div>
-            <div id="burger-list" class="product-grid"></div>
-          </section>
-
-          <section id="pasta-section">
-            <div class="seperator-full">
-              <div class="seperator-content">
-                <img src="./assets/icons/pasta.png" alt="Pasta" />
-                <h2>Pasta</h2>
-              </div>
-            </div>
-            <div id="pasta-list" class="product-grid"></div>
-          </section>
-
-          <section id="salad-section">
-            <div class="seperator-full">
-              <div class="seperator-content">
-                <img src="./assets/icons/Salad 1.png" alt="Salat Icon" />
-                <h2>Salate</h2>
-              </div>
-            </div>
-            <div id="salat-list" class="product-grid"></div>
-          </section>
-        </section>
-
-        <section id="basket-modal" class="basket_container">
-          <div id="basket-content" class="basket">
-            <div class="cart-header-row">
-              <h3>Warenkorb</h3>
-              <button id="close-basket-btn" class="close-btn" onclick="toggleMobileBasket()">&times;</button>
-            </div>
-
-            <div id="basket-items"></div>
-            <div id="basket-total" class="basket-total">
-              <div class="row">
-                <span>Zwischensumme:</span><span id="total-amount">0.00 €</span>
-              </div>
-              <div class="row">
-                <span>Lieferkosten:</span><span id="delivery-fee">2.50 €</span>
-              </div>
-              <hr />
-              <div class="row total">
-                <span>Gesamt:</span><span id="grand-total">0.00 €</span>
-              </div>
-              <button
-                id="checkout-btn"
-                class="checkout-btn"
-                onclick="placeOrder()"
-              >
-                Bestellen
-              </button>
-            </div>
-          </div>
-          <div id="basket-icon-container">
-            <img
-              src="./assets/icons/shopping_cart.svg"
-              alt="Warenkorb"
-              id="basket-icon"
-            />
-            <span id="basket-count">0</span>
-          </div>
-        </section>
-      </div>
-    </main>
-    <footer>
-      <section class="footer-content">
-        <p>&copy; 2025 BurgerHouse</p>
-        <a href="#">Imprint</a>
-        <a href="#">Cokkie Preferences</a>
-      </section>
-    </footer>
-
-    <div id="mobile-basket-overlay" class="mobile-overlay" onclick="toggleMobileBasket()"></div>
-
-    <nav class="mobile-bottom-nav">
-      <div class="nav-item" onclick="window.scrollTo(0,0)">
-        <img
-          src="./assets/icons/Logo02.svg"
-          alt="Home"
-          style="width: 24px; filter: invert(1)"
-        />
-        <span>Menu</span>
-      </div>
-
-      <div class="nav-item" id="mobile-cart-trigger" onclick="toggleMobileBasket()">
-        <div class="icon-wrapper">
-          <img
-            src="./assets/icons/shopping_cart.svg"
-            alt="Cart"
-            style="filter: invert(1)"
-          />
-          <span id="mobile-basket-count" class="cart-badge">0</span>
-        </div>
-        <span>Korb</span>
-      </div>
+      <button id="burger-button" class="burger-button">
+        <img src="./assets/icons/dehaze.svg" alt="menu" />
+      </button>
     </nav>
+  </header>
+  <main>
+    <div class="main-image-container">
+      <img src="./assets/icons/mainpic.png" alt="" class="main-image" />
+      <img src="./assets/icons/BurgerHouseLogo.png" alt="Logo" class="logo-overlay" />
+    </div>
+    <div class="headline">
+      <h1 class="heading"><span>Burger</span>House</h1>
+      <h4>The best of Burgers, Pizza, and Greens, all in one great place.</h4>
+    </div>
+    <div class="category-nav-background">
+      <nav class="category-nav">
+        <a href="#pizza-section">Pizzen</a>
+        <a href="#burger-section">Burger</a>
+        <a href="#pasta-section">Pasta</a>
+        <a href="#salad-section">Salate</a>
+      </nav>
+    </div>
+    <div class="splitt_view_container">
+      <section id="product-list" class="product-list">
+        <section id="pizza-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/Pizza 1.png" alt="Pizza" />
+              <h2>Pizzen</h2>
+            </div>
+          </div>
+          <div id="pizza-list" class="product-grid"></div>
+        </section>
 
-    <div id="overlay" class="overlay d-none" onclick="closeOverlay()">
-      <div class="confirmation-card" onclick="event.stopPropagation()">
-        <img src="./assets/icons/delivercar.png" alt="DeliverCar" />
-        <h3>Bestellung bestätigt!</h3>
-        <p>Dein Essen ist auf dem Weg.</p>
-      </div>
+        <section id="burger-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/Burger.png" alt="Burger" />
+              <h2>Burger</h2>
+            </div>
+          </div>
+          <div id="burger-list" class="product-grid"></div>
+        </section>
+
+        <section id="pasta-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/pasta.png" alt="Pasta" />
+              <h2>Pasta</h2>
+            </div>
+          </div>
+          <div id="pasta-list" class="product-grid"></div>
+        </section>
+
+        <section id="salad-section">
+          <div class="seperator-full">
+            <div class="seperator-content">
+              <img src="./assets/icons/Salad 1.png" alt="Salat Icon" />
+              <h2>Salate</h2>
+            </div>
+          </div>
+          <div id="salat-list" class="product-grid"></div>
+        </section>
+      </section>
+
+      <section id="basket-modal" class="basket_container">
+        <div id="basket-content" class="basket">
+          <div class="cart-header-row">
+            <h3>Warenkorb</h3>
+            <button id="close-basket-btn" class="close-btn" onclick="toggleMobileBasket()">&times;</button>
+          </div>
+
+          <div id="basket-items"></div>
+          <div id="basket-total" class="basket-total">
+            <div class="row">
+              <span>Zwischensumme:</span><span id="total-amount">0.00 €</span>
+            </div>
+            <div class="row">
+              <span>Lieferkosten:</span><span id="delivery-fee">2.50 €</span>
+            </div>
+            <hr />
+            <div class="row total">
+              <span>Gesamt:</span><span id="grand-total">0.00 €</span>
+            </div>
+            <button id="checkout-btn" class="checkout-btn" onclick="placeOrder()">
+              Bestellen
+            </button>
+          </div>
+        </div>
+        <div id="basket-icon-container">
+          <img src="./assets/icons/shopping_cart.svg" alt="Warenkorb" id="basket-icon" />
+          <span id="basket-count">0</span>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <section class="footer-content">
+      <p>&copy; 2025 BurgerHouse</p>
+      <a href="#">Imprint</a>
+      <a href="#">Cokkie Preferences</a>
+    </section>
+  </footer>
+
+  <div id="mobile-basket-overlay" class="mobile-overlay" onclick="toggleMobileBasket()"></div>
+
+  <nav class="mobile-bottom-nav">
+    <div class="nav-item" onclick="window.scrollTo(0,0)">
+      <img src="./assets/icons/Logo02.svg" alt="Home" style="width: 24px; filter: invert(1)" />
+      <span>Menu</span>
     </div>
 
-    <script src="./scripts/db.js"></script>
-    <script src="./scripts/template.js"></script>
-    <script src="./script.js"></script>
-    <script src="./scripts/responsive.js"></script>
-  </body>
+    <div class="nav-item" id="mobile-cart-trigger" onclick="toggleMobileBasket()">
+      <div class="icon-wrapper">
+        <img src="./assets/icons/shopping_cart.svg" alt="Cart" style="filter: invert(1)" />
+        <span id="mobile-basket-count" class="cart-badge">0</span>
+      </div>
+      <span>Korb</span>
+    </div>
+  </nav>
+
+  <div id="overlay" class="overlay d-none" onclick="closeOverlay()">
+    <div class="confirmation-card" onclick="event.stopPropagation()">
+      <img src="./assets/icons/delivercar.png" alt="DeliverCar" />
+      <h3>Bestellung bestätigt!</h3>
+      <p>Dein Essen ist auf dem Weg.</p>
+    </div>
+  </div>
+
+  <script src="./scripts/db.js"></script>
+  <script src="./scripts/template.js"></script>
+  <script src="./script.js"></script>
+  <script src="./scripts/responsive.js"></script>
+</body>
+
 </html>

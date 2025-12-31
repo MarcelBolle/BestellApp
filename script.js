@@ -20,11 +20,11 @@ function updateBasketSums() {
 }
 
 function updateBadges() {
-    const totalItems = myBasket.reduce((sum, item) => sum + item.amount, 0);
-    const desktopBadge = document.getElementById("basket-count");
-    
-    if (desktopBadge) desktopBadge.innerText = totalItems;
-    if (typeof updateMobileCounter === "function") updateMobileCounter(totalItems);
+  const totalItems = myBasket.reduce((sum, item) => sum + item.amount, 0);
+  const desktopBadge = document.getElementById("basket-count");
+
+  if (desktopBadge) desktopBadge.innerText = totalItems;
+  if (typeof updateMobileCounter === "function") updateMobileCounter(totalItems);
 }
 
 function getBasketStatus(dishName) {
@@ -35,8 +35,8 @@ function getBasketStatus(dishName) {
 function renderMenu() {
   const categories = ["Pizza", "Burger", "Pasta", "Salat"];
   categories.forEach(cat => {
-      const dishes = myDishes.filter(d => d.category === cat);
-      renderDishes(dishes, `${cat.toLowerCase()}-list`);
+    const dishes = myDishes.filter(d => d.category === cat);
+    renderDishes(dishes, `${cat.toLowerCase()}-list`);
   });
 }
 
@@ -51,19 +51,19 @@ function placeOrder() {
   clearBasketData();
   renderBasket();
   renderMenu();
-  closeMobileBasket();
+  toggleMobileBasket();
   showOrderConfirmation();
 }
 
 function clearBasketData() {
-    myBasket = [];
-    localStorage.setItem("basket", JSON.stringify(myBasket));
+  myBasket = [];
+  localStorage.setItem("basket", JSON.stringify(myBasket));
 }
 
 function showOrderConfirmation() {
-    const overlay = document.getElementById("overlay");
-    overlay.classList.remove("d-none");
-    setTimeout(() => overlay.classList.add("d-none"), 3000);
+  const overlay = document.getElementById("overlay");
+  overlay.classList.remove("d-none");
+  setTimeout(() => overlay.classList.add("d-none"), 3000);
 }
 //endregion
 
@@ -84,7 +84,7 @@ function removeFromBasket(name, deleteFully = false) {
   if (foundDish) {
     foundDish.amount--;
     if (deleteFully || foundDish.amount <= 0) {
-       myBasket = myBasket.filter((dish) => dish.name !== name);
+      myBasket = myBasket.filter((dish) => dish.name !== name);
     }
   }
   renderBasket();
