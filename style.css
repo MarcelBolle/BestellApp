@@ -1,3 +1,7 @@
+#pizza-section #burger-section #pasta-section #salad-section {
+  padding-top: 60px;
+}
+
 .main-header {
   background-color: #e76c1f;
   height: 128px;
