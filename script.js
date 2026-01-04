@@ -116,6 +116,14 @@ function renderBasket() {
   updateBadges();
 }
 
-initApp();
-renderBasket();
+function closeOverlay() {
+  const overlay = document.querySelector(".overlay");
+  const basketModal = document.getElementById("basket-modal");
+
+  if (overlay) overlay.classList.add("d-none");
+  if (basketModal) basketModal.classList.add("d-none");
+
+  document.body.style.overflow = "";
+}
+
 // endregion

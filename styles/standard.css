@@ -64,6 +64,10 @@ p {
   filter: invert(1) brightness(0);
 }
 
+section {
+  scroll-margin-top: 40px;
+}
+
 @keyframes slideIn {
   from {
     transform: translateY(50px);

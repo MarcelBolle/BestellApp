@@ -13,6 +13,9 @@
 /*Media Queries für Responsive Design*/
 
 @media (max-width: 900px) {
+  .body {
+    padding-bottom: 80px;
+  }
   .splitt_view_container {
     display: block;
     width: 100%;
@@ -204,7 +207,8 @@
   }
 
   .footer-content {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     gap: 20px;
     padding-bottom: 80px;
   }
@@ -327,5 +331,11 @@
   .action-buttons {
     flex-direction: column-reverse;
     align-items: stretch;
+  }
+
+  .headline-top{
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
   }
 }

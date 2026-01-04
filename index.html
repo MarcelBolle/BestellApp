@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="./styles/cards.css" />
 </head>
 
-<body>
+<body onload="initApp(); renderBasket();">
   <header class="main-header">
     <nav class="navbar">
       <img src="./assets/icons/Logo02.svg" alt="Logo" id="logo" />
@@ -31,7 +31,16 @@
       <img src="./assets/icons/BurgerHouseLogo.png" alt="Logo" class="logo-overlay" />
     </div>
     <div class="headline">
-      <h1 class="heading"><span>Burger</span>House</h1>
+      <div class="headline-top">
+        <h1 class="heading"><span>Burger</span>House</h1>
+
+        <div class="rating" aria-label="Bewertung 4.7 von 5">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-value">4.7</span>
+          <span class="rating-count">(128)</span>
+        </div>
+      </div>
+
       <h4>The best of Burgers, Pizza, and Greens, all in one great place.</h4>
     </div>
     <div class="category-nav-background">

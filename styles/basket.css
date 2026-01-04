@@ -10,8 +10,7 @@
 
 .basket {
   position: sticky;
-  min-height: 500px;
-  max-height: 700px;
+  height: 745px;
   top: 38px;
   display: flex;
   flex-direction: column;
