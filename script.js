@@ -5,6 +5,16 @@ const DELIVERY_COSTS = 4.9;
 //endregion
 
 //region Helper
+function loadBasket() {
+  const saved = localStorage.getItem("basket");
+  myBasket = saved ? JSON.parse(saved) : [];
+}
+
+function saveBasket() {
+  localStorage.setItem("basket", JSON.stringify(myBasket));
+}
+
+
 function calculateTotal() {
   return myBasket.reduce((sum, item) => sum + item.price * item.amount, 0);
 }
@@ -29,19 +39,26 @@ function updateBadges() {
 
 function getBasketStatus(dishName) {
   const item = myBasket.find((i) => i.name === dishName);
-  return (item && item.amount > 0) ? `<span class="added-badge">Added ${item.amount}</span>` : "";
+  return item && item.amount > 0
+    ? `<span class="added-badge">Added ${item.amount}</span>`
+    : "";
 }
 
 function renderMenu() {
   const categories = ["Pizza", "Burger", "Pasta", "Salat"];
-  categories.forEach(cat => {
-    const dishes = myDishes.filter(d => d.category === cat);
+  categories.forEach((cat) => {
+    const dishes = myDishes.filter((d) => d.category === cat);
     renderDishes(dishes, `${cat.toLowerCase()}-list`);
   });
 }
 
 function initApp() {
+  loadBasket();
   renderMenu();
+  renderBasket();
+  requestAnimationFrame(() => {
+    document.body.classList.remove("menu-loading");
+  });
 }
 //endregion
 
@@ -58,6 +75,7 @@ function placeOrder() {
 function clearBasketData() {
   myBasket = [];
   localStorage.setItem("basket", JSON.stringify(myBasket));
+  saveBasket();
 }
 
 function showOrderConfirmation() {
@@ -67,7 +85,7 @@ function showOrderConfirmation() {
 }
 //endregion
 
-// region Basket Logic
+//region Basket Logic
 function addToBasket(name, price) {
   const foundDish = myBasket.find((dish) => dish.name === name);
   if (foundDish) {
@@ -75,6 +93,7 @@ function addToBasket(name, price) {
   } else {
     myBasket.push({ name: name, price: price, amount: 1 });
   }
+  saveBasket();
   renderBasket();
   renderMenu();
 }
@@ -87,35 +106,84 @@ function removeFromBasket(name, deleteFully = false) {
       myBasket = myBasket.filter((dish) => dish.name !== name);
     }
   }
+  saveBasket();
   renderBasket();
   renderMenu();
 }
 //endregion
 
-// region Rendering
+//region Rendering
 function renderDishes(dishes, containerId) {
   const container = document.getElementById(containerId);
   if (container) container.innerHTML = dishes.map(getDishTemplate).join("");
 }
 
 function renderBasket() {
+  const els = getBasketElements();
+  if (!els) return;
+
+  resetBasketUI(els);
+
+  if (isBasketEmpty()) {
+    finalizeBasket();
+    return;
+  }
+
+  showBasket(els);
+  renderBasketItems(els.itemsCon);
+  handleBasketScroll(els.basketEl);
+
+  finalizeBasket();
+}
+
+function getBasketElements() {
   const itemsCon = document.getElementById("basket-items");
   const modal = document.getElementById("basket-modal");
   const basketEl = document.getElementById("basket-content");
 
-  if (!itemsCon || !modal) return;
+  if (!itemsCon || !modal) return null;
 
-  const isEmpty = myBasket.length === 0;
-  modal.classList.toggle("d-none", isEmpty);
-  itemsCon.innerHTML = isEmpty ? "" : myBasket.map(getBasketItemTemplate).join("");
+  return { itemsCon, modal, basketEl };
+}
+
+function resetBasketUI({ itemsCon, modal, basketEl }) {
+  itemsCon.innerHTML = "";
+  modal.classList.add("d-none");
+  if (basketEl) basketEl.classList.remove("scroll-items");
+}
+
+function isBasketEmpty() {
+  return myBasket.length === 0;
+}
+
+function showBasket({ modal }) {
+  modal.classList.remove("d-none");
+}
+
+function renderBasketItems(itemsCon) {
+  let html = "";
+
+  for (let i = 0; i < myBasket.length; i++) {
+    html += getBasketItemTemplate(myBasket[i]);
+  }
+
+  itemsCon.innerHTML = html;
+}
+
+function handleBasketScroll(basketEl) {
+  if (!basketEl) return;
 
   const totalItems = myBasket.reduce((sum, item) => sum + item.amount, 0);
-  if (basketEl) basketEl.classList.toggle("scroll-items", totalItems >= 3);
+  if (totalItems >= 3) basketEl.classList.add("scroll-items");
+}
 
+function finalizeBasket() {
   updateBasketSums();
   updateBadges();
 }
+//endregion
 
+//region Overlay / UI
 function closeOverlay() {
   const overlay = document.querySelector(".overlay");
   const basketModal = document.getElementById("basket-modal");
@@ -125,5 +193,9 @@ function closeOverlay() {
 
   document.body.style.overflow = "";
 }
+//endregion
 
-// endregion
+//region Init
+// initApp();
+//endregion
+

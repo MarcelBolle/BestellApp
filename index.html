@@ -7,6 +7,12 @@
   <title>Bestell App</title>
 
   <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.png" />
+  
+  <style>
+  body.menu-loading .product-grid { 
+    visibility: hidden; 
+  }
+</style> 
 
   <link rel="stylesheet" href="./styles/standard.css" />
   <link rel="stylesheet" href="./style.css" />
@@ -15,7 +21,7 @@
   <link rel="stylesheet" href="./styles/cards.css" />
 </head>
 
-<body onload="initApp(); renderBasket();">
+<body onload="initApp();" class="menu-loading">
   <header class="main-header">
     <nav class="navbar">
       <img src="./assets/icons/Logo02.svg" alt="Logo" id="logo" />
@@ -94,7 +100,7 @@
         </section>
       </section>
 
-      <section id="basket-modal" class="basket_container">
+      <section id="basket-modal" class="basket_container d-none">
         <div id="basket-content" class="basket">
           <div class="cart-header-row">
             <h3>Warenkorb</h3>
