@@ -52,14 +52,7 @@ function renderMenu() {
   });
 }
 
-function initApp() {
-  loadBasket();
-  renderMenu();
-  renderBasket();
-  requestAnimationFrame(() => {
-    document.body.classList.remove("menu-loading");
-  });
-}
+
 //endregion
 
 //region Order Logic
@@ -196,6 +189,10 @@ function closeOverlay() {
 //endregion
 
 //region Init
-// initApp();
+function initApp() {
+  loadBasket();
+  renderMenu();
+  renderBasket();
+}
 //endregion
 
