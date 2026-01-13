@@ -74,7 +74,20 @@ function clearBasketData() {
 function showOrderConfirmation() {
   const overlay = document.getElementById("overlay");
   overlay.classList.remove("d-none");
-  setTimeout(() => overlay.classList.add("d-none"), 3000);
+
+  document.documentElement.classList.add("no-scroll");
+  document.body.classList.add("no-scroll");
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+    overlay.classList.add("d-none");
+
+    document.documentElement.classList.remove("no-scroll");
+    document.body.classList.remove("no-scroll");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+  }, 3000);
 }
 //endregion
 
